@@ -12,6 +12,7 @@ import {
   Server,
   LifeBuoy,
   Send,
+  BookText,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -50,6 +51,12 @@ const navData = {
         },
       ],
     },
+    {
+  title: "Getting Started",
+  url: "/docs/getting-started",
+  icon: BookText,
+  items: [],
+},
     {
       title: "Snippets",
       url: "/dashboard/snippets",
