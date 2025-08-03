@@ -2,8 +2,20 @@ import { NextAuthOptions } from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { db } from "@/lib/db"
 import GitHubProvider from "next-auth/providers/github"
-import EmailProvider from "next-auth/providers/email"
+import CredentialsProvider from "next-auth/providers/credentials"
+import bcrypt from "bcryptjs"
 import type { Adapter } from "next-auth/adapters"
+
+// Extended user type to include our custom fields
+interface ExtendedUser {
+  id: string
+  username: string
+  email: string | null
+  password: string
+  name: string | null
+  role: string
+  image: string | null
+}
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db) as Adapter,
@@ -12,17 +24,47 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
-    EmailProvider({
-      server: {
-        host: process.env.EMAIL_SERVER_HOST,
-        port: process.env.EMAIL_SERVER_PORT,
-        auth: {
-          user: process.env.EMAIL_SERVER_USER,
-          pass: process.env.EMAIL_SERVER_PASSWORD,
-        },
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" }
       },
-      from: process.env.EMAIL_FROM,
-    }),
+      async authorize(credentials) {
+        if (!credentials?.username || !credentials?.password) {
+          return null
+        }
+
+        // @ts-expect-error - Prisma types not updated yet
+        const user = await db.user.findUnique({
+          where: {
+            username: credentials.username
+          }
+        }) as ExtendedUser | null
+
+        if (!user || !user.password) {
+          return null
+        }
+
+        const isPasswordValid = await bcrypt.compare(
+          credentials.password,
+          user.password
+        )
+
+        if (!isPasswordValid) {
+          return null
+        }
+
+        return {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          name: user.name,
+          role: user.role,
+          image: user.image,
+        }
+      }
+    })
   ],
   session: {
     strategy: "jwt",
@@ -34,12 +76,16 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id
+        token.username = (user as ExtendedUser).username
+        token.role = (user as ExtendedUser).role
       }
       return token
     },
     async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id as string
+        session.user.username = token.username as string
+        session.user.role = token.role as string
       }
       return session
     },
