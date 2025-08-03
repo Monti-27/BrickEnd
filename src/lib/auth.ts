@@ -23,6 +23,15 @@ export const authOptions: NextAuthOptions = {
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+      profile(profile) {
+        return {
+          id: profile.id.toString(),
+          name: profile.name || profile.login,
+          email: profile.email,
+          image: profile.avatar_url,
+          username: profile.login, // Use GitHub username as our username
+        }
+      },
     }),
     CredentialsProvider({
       name: "credentials",
@@ -35,7 +44,6 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        // @ts-expect-error - Prisma types not updated yet
         const user = await db.user.findUnique({
           where: {
             username: credentials.username
@@ -73,7 +81,7 @@ export const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
       if (user) {
         token.id = user.id
         token.username = (user as ExtendedUser).username
