@@ -40,13 +40,18 @@ model Session {
 
 model User {
   id            String    @id @default(cuid())
-  name          String?
+  username      String    @unique
   email         String?   @unique
+  password      String
+  name          String?
+  role          String    @default("user")
   emailVerified DateTime? @map("email_verified")
   image         String?
   accounts      Account[]
   sessions      Session[]
   snippets      Snippet[]
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
 
   @@map("users")
 }
