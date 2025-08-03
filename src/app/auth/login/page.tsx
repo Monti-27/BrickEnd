@@ -8,12 +8,12 @@ export default function LoginPage() {
       {/* Header */}
       <header className="relative z-10 flex items-center justify-between p-6">
         <a href="/dashboard" className="flex items-center gap-2 font-medium">
-          <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-lg">
-            <Database className="size-5" />
+          <div className="bg-primary text-primary-foreground flex size-8 items-center justify-center rounded-lg ">
+            <Database className="size-5 bg-transparent bg-clip-text " />
           </div>
-          <span className="text-xl font-bold">BrickEnd</span>
+          <span className="text-xl font-semibold tracking-wider italic">BrickEnd</span>
         </a>
-        <div className="text-sm text-muted-foreground">
+        <div className="text-md text-muted-foreground">
           Backend Library for Developers
         </div>
       </header>

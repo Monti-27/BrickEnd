@@ -19,6 +19,7 @@ import {
   Youtube
 } from "lucide-react"
 import Link from "next/link"
+import { alata } from "@/components/ui/fonts"
 
 export default function LandingPage() {
   const features = [
@@ -71,17 +72,17 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Database className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-            <span className="font-bold text-lg sm:text-xl text-white">BrickEnd</span>
+                          <span className={`text-lg sm:text-2xl text-white ${alata.className}`}>BrickEnd</span>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <Link href="/auth/login">
-              <Button variant="ghost" className="text-white hover:text-gray-300 text-sm sm:text-base px-2 sm:px-4 font-medium">
+              <Button variant="ghost" className="text-white rounded-full hover:text-gray-300 text-sm sm:text-base px-2 sm:px-4 font-medium">
                 Sign In
               </Button>
             </Link>
             <Link href="/auth/login">
-              <Button className="text-sm sm:text-base px-3 sm:px-4 font-semibold">
-                Get Started <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
+              <Button className="text-sm sm:text-base px-3 sm:px-4 font-semibold cursor-pointer rounded-full">
+                Get Started <ArrowRight className="-ml-1 h-3 w-3 sm:h-4 sm:w-4" />
               </Button>
             </Link>
           </div>
@@ -91,28 +92,28 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="bg-black">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24 text-center">
-          <div className="max-w-4xl mx-auto">
-            <Badge variant="secondary" className="mb-4 text-xs sm:text-sm font-medium">
+          <div className={`max-w-4xl mx-auto `}>
+            <Badge variant="secondary" className="mb-4 text-xs sm:text-sm font-medium pointer-events-none rounded-full border border-cyan-300/40">
               <Star className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />
-              Backend Library Platform
+              Backend Library Platform &rarr;
             </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight">
+          <div className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-none ${alata.className} `}>
               Build Better
               <br />
-              <span className="text-primary">Backend Solutions</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0 font-light leading-relaxed">
-              BrickEnd is a comprehensive backend library platform that helps developers organize, 
-              share, and collaborate on backend components with modern tools and best practices.
+              <span className="text-primary ">Backend Solutions</span>
+            </div>
+            <p className="text-base sm:text-lg md:text-lg text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0 font-light leading-7">
+              BrickEnd is a comprehensive backend library platform that helps <br /> developers organize, 
+              share, and collaborate on backend components <br /> with modern tools and best practices.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
               <Link href="/auth/login">
-                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto font-semibold">
-                  Start Building <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto font-semibold rounded-full gap-1">
+                  Start Building <ArrowRight className="ml-1 h-5 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 border-gray-600 text-white hover:bg-gray-800 w-full sm:w-auto font-medium" onClick={() => window.open('https://github.com/Monti-27/BrickEnd', '_blank')}>
-                <Github className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+              <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 rounded-full sm:px-8 border-gray-600 text-white hover:bg-gray-800 w-full sm:w-auto font-medium" onClick={() => window.open('https://github.com/Monti-27/BrickEnd', '_blank')}>
+                <Github className="mr-1 h-4 w-4 sm:h-5 sm:w-5" />
                 View on GitHub
               </Button>
             </div>
@@ -124,10 +125,10 @@ export default function LandingPage() {
       <section className="bg-black">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Built with Modern Technologies</h2>
+            <h2 className={`text-2xl sm:text-3xl ${alata.className} mb-3 sm:mb-2 text-white`}>Built with Modern Technologies</h2>
             <p className="text-gray-400 text-sm sm:text-base font-light">Powered by the latest and greatest tools</p>
           </div>
-          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center max-w-4xl mx-auto px-4 sm:px-0">
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center max-w-4xl mx-auto px-4 sm:px-0 ">
             {techStack.map((tech) => (
               <Badge key={tech.name} variant="outline" className={`px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium ${tech.color}`}>
                 {tech.name}
