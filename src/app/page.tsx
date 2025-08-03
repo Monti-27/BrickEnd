@@ -65,10 +65,17 @@ export default function LandingPage() {
     { name: "Tailwind v4", color: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20" }
   ]
 
-  return (
-    <div className="min-h-screen bg-black">
-      {/* Navigation */}
-      <nav className="border-b border-gray-800/30 bg-black/95 backdrop-blur">
+      return (
+      <div className="min-h-screen w-full relative bg-black">
+        {/* Background Gradient - Fixed to viewport */}
+        <div
+          className="fixed inset-0 z-0"
+          style={{
+            background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(6, 182, 212, 0.3), transparent 70%), #000000",
+          }}
+        />
+        {/* Navigation */}
+        <nav className="relative z-10 border-b border-gray-800/30 bg-transparent backdrop-blur-sm">
         <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Database className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
@@ -90,7 +97,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-black">
+      <section className="relative z-10 bg-transparent">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24 text-center">
           <div className={`max-w-4xl mx-auto `}>
             <Badge variant="secondary" className="mb-4 text-xs sm:text-sm font-medium pointer-events-none rounded-full border border-cyan-300/40">
@@ -122,7 +129,7 @@ export default function LandingPage() {
       </section>
 
       {/* Tech Stack */}
-      <section className="bg-black">
+      <section className="relative z-10 bg-transparent">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className={`text-2xl sm:text-3xl ${alata.className} mb-3 sm:mb-2 text-white`}>Built with Modern Technologies</h2>
@@ -139,7 +146,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="bg-black">
+      <section className="relative z-10 bg-transparent">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">Everything You Need</h2>
@@ -168,7 +175,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-black border-y border-gray-800/30">
+      <section className="relative z-10 bg-transparent border-y border-gray-800/30">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
@@ -192,7 +199,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-black">
+      <section className="relative z-10 bg-transparent">
         <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">Ready to Build Something Amazing?</h2>
@@ -215,7 +222,7 @@ export default function LandingPage() {
       </section>
 
       {/* BRICKEND Background Text */}
-      <div className="relative bg-black">
+      <div className="relative z-10 bg-transparent">
         <div className="text-center py-4 sm:py-6 md:py-8 flex items-center justify-center" style={{ zIndex: 1, marginTop: '2rem', transform: 'translateY(2px)' }}>
           <h2 className="text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem] font-black leading-none tracking-tight select-none" style={{
             fontFamily: 'Inter, sans-serif',
@@ -232,7 +239,7 @@ export default function LandingPage() {
       </div>
 
       {/* Actual Footer */}
-      <footer className="bg-black relative -mt-10 sm:-mt-16 md:-mt-20" style={{ zIndex: 10 }}>
+      <footer className="relative z-20 bg-transparent -mt-10 sm:-mt-16 md:-mt-20">
         {/* Blue Hemisphere Gradient Overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: 'radial-gradient(ellipse 120% 90% at center bottom, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.15) 20%, rgba(96, 165, 250, 0.08) 50%, rgba(147, 197, 253, 0.02) 80%, transparent 95%)'
@@ -366,3 +373,5 @@ export default function LandingPage() {
     </div>
   )
 }
+
+
