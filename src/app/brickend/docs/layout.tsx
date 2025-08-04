@@ -9,8 +9,6 @@ import { Button } from "@/components/ui/button"
 import { 
   Menu, 
   Search, 
-  X,
-  ChevronRight,
   Github,
   Twitter,
   Database

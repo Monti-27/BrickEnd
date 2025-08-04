@@ -81,7 +81,7 @@ export const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
   callbacks: {
-    async jwt({ token, user, account }) {
+    async jwt({ token, user, account: _account }) {
       if (user) {
         token.id = user.id
         token.username = (user as ExtendedUser).username

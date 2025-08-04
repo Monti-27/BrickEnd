@@ -6,13 +6,12 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { 
   Copy, 
-  Download, 
+  Download,
   Star, 
   Eye, 
   Code2, 
   FileText,
   CheckCircle,
-  AlertCircle,
   Info
 } from "lucide-react"
 import { useState } from "react"

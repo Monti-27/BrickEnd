@@ -260,7 +260,7 @@ export default function ExamplesPage() {
                 alt="Developer struggling"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"I used to spend 3 hours on auth. Now I spend 3 minutes. The other 2 hours and 57 minutes? Coffee time."</p>
+              <p className="text-sm italic">&quot;I used to spend 3 hours on auth. Now I spend 3 minutes. The other 2 hours and 57 minutes? Coffee time.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Emma, Senior Developer</p>
             </div>
             
@@ -270,7 +270,7 @@ export default function ExamplesPage() {
                 alt="Developer celebrating"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"BrickEnd is like having a senior developer who never takes vacation and always knows the answer."</p>
+              <p className="text-sm italic">&quot;BrickEnd is like having a senior developer who never takes vacation and always knows the answer.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Carlos, Tech Lead</p>
             </div>
             
@@ -280,7 +280,7 @@ export default function ExamplesPage() {
                 alt="Developer thinking"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"My productivity increased by 500%. My coffee consumption increased by 1000%. Worth it."</p>
+              <p className="text-sm italic">&quot;My productivity increased by 500%. My coffee consumption increased by 1000%. Worth it.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Sarah, Startup Founder</p>
             </div>
             
@@ -290,7 +290,7 @@ export default function ExamplesPage() {
                 alt="Developer happy"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"I actually have time to write tests now. What is this sorcery? Am I dreaming?"</p>
+              <p className="text-sm italic">&quot;I actually have time to write tests now. What is this sorcery? Am I dreaming?&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Mike, QA Engineer</p>
             </div>
             
@@ -300,7 +300,7 @@ export default function ExamplesPage() {
                 alt="Developer confused"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"BrickEnd saved me from writing the same CRUD operations for the 47th time. I can finally focus on what matters."</p>
+              <p className="text-sm italic">&quot;BrickEnd saved me from writing the same CRUD operations for the 47th time. I can finally focus on what matters.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Alex, Full Stack Developer</p>
             </div>
             
@@ -310,7 +310,7 @@ export default function ExamplesPage() {
                 alt="Developer successful"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"My clients think I'm a coding wizard. Little do they know I'm just really good at copy-paste."</p>
+              <p className="text-sm italic">&quot;My clients think I&apos;m a coding wizard. Little do they know I&apos;m just really good at copy-paste.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- David, Freelancer</p>
             </div>
           </div>

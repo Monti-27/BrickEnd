@@ -3,15 +3,14 @@
 import * as React from "react"
 import { useSession } from "next-auth/react"
 import {
-  Database,
-  Users,
-  Settings2,
   BarChart3,
+  Database,
+  Settings,
+  User,
   Shield,
   Code,
   Server,
   LifeBuoy,
-  Send,
   Key,
   Lock,
   FileText,
@@ -21,7 +20,6 @@ import {
   MessageSquare,
   Palette,
   Search,
-  Filter,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -448,7 +446,7 @@ const navData = {
     {
       title: "Settings",
       url: "/dashboard/settings",
-      icon: Settings2,
+      icon: Settings,
       items: [
         {
           title: "Profile",
@@ -491,7 +489,7 @@ const navData = {
     {
       name: "Shared Snippets",
       url: "/dashboard/shared",
-      icon: Users,
+      icon: User,
     },
     {
       name: "Templates",

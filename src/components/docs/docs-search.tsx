@@ -6,8 +6,6 @@ import { Input } from "@/components/ui/input"
 import { 
   Search, 
   X, 
-  Command,
-  ArrowUp,
   ArrowDown
 } from "lucide-react"
 

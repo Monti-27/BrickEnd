@@ -13,10 +13,7 @@ import {
   Github,
   Star,
   GitBranch,
-  Terminal,
-  Linkedin,
-  X,
-  Youtube
+  Terminal
 } from "lucide-react"
 import Link from "next/link"
 

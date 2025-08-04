@@ -11,19 +11,11 @@ import {
   BookOpen,
   Code,
   Database,
-  Shield,
   Server,
   FileText,
-  Zap,
-  Globe,
-  Lock,
-  Search,
-  Cloud,
-  Settings,
   Users,
   MessageSquare,
-  LifeBuoy,
-  ExternalLink
+  LifeBuoy
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 

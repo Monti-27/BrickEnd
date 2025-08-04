@@ -35,7 +35,7 @@ export default function TechnologiesPage() {
                   alt="Developer struggling with code"
                   className="w-full h-32 object-cover rounded"
                 />
-                <p className="text-xs text-muted-foreground">"Let me Google how to implement OAuth with NextAuth.js for the 15th time"</p>
+                <p className="text-xs text-muted-foreground">&quot;Let me Google how to implement OAuth with NextAuth.js for the 15th time&quot;</p>
               </div>
               <div className="space-y-2">
                 <p className="text-sm font-semibold">After BrickEnd:</p>
@@ -44,7 +44,7 @@ export default function TechnologiesPage() {
                   alt="Developer celebrating success"
                   className="w-full h-32 object-cover rounded"
                 />
-                <p className="text-xs text-muted-foreground">"Copy, paste, customize, done. Time for coffee"</p>
+                <p className="text-xs text-muted-foreground">&quot;Copy, paste, customize, done. Time for coffee&quot;</p>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function TechnologiesPage() {
               CRUD operations, aggregation pipelines, and connection management that actually work.
             </p>
             <div className="mt-3 text-xs text-muted-foreground">
-              Perfect for: "I need to query this in 5 different ways" moments
+              Perfect for: &quot;I need to query this in 5 different ways&quot; moments
             </div>
             <a href="/brickend/docs/technologies/mongodb" className="absolute inset-0">
               <span className="sr-only">View MongoDB Snippets</span>
@@ -84,7 +84,7 @@ export default function TechnologiesPage() {
               User management, authentication, and user profiles without the headache.
             </p>
             <div className="mt-3 text-xs text-muted-foreground">
-              Perfect for: "Users? What users? Oh right, I need auth" moments
+              Perfect for: &quot;Users? What users? Oh right, I need auth&quot; moments
             </div>
             <a href="/brickend/docs/technologies/clerk" className="absolute inset-0">
               <span className="sr-only">View Clerk Snippets</span>
@@ -104,7 +104,7 @@ export default function TechnologiesPage() {
               Database operations that don&apos;t make you question your life choices.
             </p>
             <div className="mt-3 text-xs text-muted-foreground">
-              Perfect for: "Why is this query so slow?" moments
+              Perfect for: &quot;Why is this query so slow?&quot; moments
             </div>
             <a href="/brickend/docs/technologies/prisma" className="absolute inset-0">
               <span className="sr-only">View Prisma Snippets</span>
@@ -124,7 +124,7 @@ export default function TechnologiesPage() {
               Authentication that works out of the box, not out of the window.
             </p>
             <div className="mt-3 text-xs text-muted-foreground">
-              Perfect for: "How do I implement OAuth again?" moments
+              Perfect for: &quot;How do I implement OAuth again?&quot; moments
             </div>
             <a href="/brickend/docs/technologies/nextauth" className="absolute inset-0">
               <span className="sr-only">View NextAuth.js Snippets</span>
@@ -144,7 +144,7 @@ export default function TechnologiesPage() {
               Payment processing that doesn&apos;t make your wallet cry.
             </p>
             <div className="mt-3 text-xs text-muted-foreground">
-              Perfect for: "Money? What money? Oh right, payments" moments
+              Perfect for: &quot;Money? What money? Oh right, payments&quot; moments
             </div>
             <a href="/brickend/docs/technologies/stripe" className="absolute inset-0">
               <span className="sr-only">View Stripe Snippets</span>
@@ -164,7 +164,7 @@ export default function TechnologiesPage() {
               Cloud services that don&apos;t require a PhD in AWS documentation.
             </p>
             <div className="mt-3 text-xs text-muted-foreground">
-              Perfect for: "Cloud? What cloud? Oh right, AWS" moments
+              Perfect for: &quot;Cloud? What cloud? Oh right, AWS&quot; moments
             </div>
             <a href="/brickend/docs/technologies/aws" className="absolute inset-0">
               <span className="sr-only">View AWS Services Snippets</span>
@@ -187,7 +187,7 @@ export default function TechnologiesPage() {
                   className="w-full h-48 object-cover rounded mb-4"
                 />
                 <ul className="space-y-2 text-sm">
-                  <li>• Spend 3 hours Googling "how to implement JWT"</li>
+                  <li>• Spend 3 hours Googling &quot;how to implement JWT&quot;</li>
                   <li>• Copy code from Stack Overflow that doesn&apos;t work</li>
                   <li>• Debug for 2 more hours</li>
                   <li>• Finally get it working at 3 AM</li>
@@ -230,7 +230,7 @@ export default function TechnologiesPage() {
                 alt="Developer struggling"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"I used to spend hours on auth. Now I just copy-paste and go get coffee."</p>
+              <p className="text-sm italic">&quot;I used to spend hours on auth. Now I just copy-paste and go get coffee.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Sarah, Full Stack Developer</p>
             </div>
             
@@ -240,7 +240,7 @@ export default function TechnologiesPage() {
                 alt="Developer celebrating"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"BrickEnd saved me from writing the same CRUD operations for the 50th time."</p>
+              <p className="text-sm italic">&quot;BrickEnd saved me from writing the same CRUD operations for the 50th time.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Mike, Backend Developer</p>
             </div>
             
@@ -250,7 +250,7 @@ export default function TechnologiesPage() {
                 alt="Developer thinking"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"Finally, I can focus on what makes my app unique instead of boilerplate."</p>
+              <p className="text-sm italic">&quot;Finally, I can focus on what makes my app unique instead of boilerplate.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Alex, Startup Founder</p>
             </div>
             
@@ -260,7 +260,7 @@ export default function TechnologiesPage() {
                 alt="Developer happy"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"My productivity increased by 300%. My coffee consumption increased by 500%."</p>
+              <p className="text-sm italic">&quot;My productivity increased by 300%. My coffee consumption increased by 500%.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- David, Senior Developer</p>
             </div>
             
@@ -270,7 +270,7 @@ export default function TechnologiesPage() {
                 alt="Developer confused"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"I actually have time to write tests now. What is this sorcery?"</p>
+              <p className="text-sm italic">&quot;I actually have time to write tests now. What is this sorcery?&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Lisa, QA Engineer</p>
             </div>
             
@@ -280,7 +280,7 @@ export default function TechnologiesPage() {
                 alt="Developer successful"
                 className="w-full h-24 object-cover rounded mb-2"
               />
-              <p className="text-sm italic">"BrickEnd is like having a senior developer who never takes vacation."</p>
+              <p className="text-sm italic">&quot;BrickEnd is like having a senior developer who never takes vacation.&quot;</p>
               <p className="text-xs text-muted-foreground mt-2">- Tom, Tech Lead</p>
             </div>
           </div>
