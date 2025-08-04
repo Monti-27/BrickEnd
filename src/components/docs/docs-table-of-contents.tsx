@@ -22,7 +22,9 @@ export function DocsTableOfContents() {
       const items: TocItem[] = elements.map((element, index) => {
         // Ensure element has an ID
         if (!element.id) {
-          element.id = `heading-${index}`
+          const text = element.textContent?.trim() || ''
+          const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+          element.id = slug || `heading-${index}-${Date.now()}`
         }
         return {
           level: Number(element.tagName.charAt(1)),

@@ -1,10 +1,11 @@
-import { NextAuthOptions } from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { db } from "@/lib/db"
 import GitHubProvider from "next-auth/providers/github"
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import type { Adapter } from "next-auth/adapters"
+import type { JWT } from "next-auth/jwt"
+import type { Session } from "next-auth"
 
 // Extended user type to include our custom fields
 interface ExtendedUser {
@@ -17,7 +18,7 @@ interface ExtendedUser {
   image: string | null
 }
 
-export const authOptions: NextAuthOptions = {
+export const authOptions = {
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
     GitHubProvider({
@@ -81,15 +82,15 @@ export const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
   callbacks: {
-    async jwt({ token, user, account: _account }) {
+    async jwt({ token, user, account: _account }: { token: JWT; user?: ExtendedUser; account?: unknown }) {
       if (user) {
         token.id = user.id
-        token.username = (user as ExtendedUser).username
-        token.role = (user as ExtendedUser).role
+        token.username = user.username
+        token.role = user.role
       }
       return token
     },
-    async session({ session, token }) {
+    async session({ session, token }: { session: Session; token: JWT }) {
       if (token && session.user) {
         session.user.id = token.id as string
         session.user.username = token.username as string
@@ -97,7 +98,7 @@ export const authOptions: NextAuthOptions = {
       }
       return session
     },
-    async redirect({ url, baseUrl }) {
+    async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
       // Allows relative callback URLs
       if (url.startsWith("/")) return `${baseUrl}${url}`
       // Allows callback URLs on the same origin
