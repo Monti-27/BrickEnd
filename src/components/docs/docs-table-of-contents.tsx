@@ -13,7 +13,7 @@ interface TocItem {
 export function DocsTableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([])
   const [activeId, setActiveId] = useState<string>("")
-  const [counter, setCounter] = useState(0)
+  const [renderKey, setRenderKey] = useState(0)
 
   useEffect(() => {
     const findHeadings = () => {
@@ -35,7 +35,6 @@ export function DocsTableOfContents() {
         }
       })
       setHeadings(items)
-      setCounter(prev => prev + 1) // Increment counter to force re-render
     }
 
     // Initial scan
@@ -44,6 +43,7 @@ export function DocsTableOfContents() {
     // Set up a MutationObserver to detect when content changes
     const observer = new MutationObserver(() => {
       findHeadings()
+      setRenderKey(prev => prev + 1) // Increment render key when content changes
     })
 
     // Observe the main content area
@@ -54,13 +54,16 @@ export function DocsTableOfContents() {
     })
 
     // Also try again after a short delay to catch any late-rendering content
-    const timer = setTimeout(findHeadings, 500)
+    const timer = setTimeout(() => {
+      findHeadings()
+      setRenderKey(prev => prev + 1)
+    }, 500)
 
     return () => {
       observer.disconnect()
       clearTimeout(timer)
     }
-  }, [counter])
+  }, [])
 
   useEffect(() => {
     if (headings.length === 0) return
@@ -118,7 +121,7 @@ export function DocsTableOfContents() {
       <h4 className="font-medium text-sm">On this page</h4>
       <ul className="space-y-1 text-sm">
         {headings.map((heading, index) => (
-          <li key={`${heading.slug}-${counter}-${index}`}>
+          <li key={`${heading.slug}-${renderKey}-${index}`}>
             <Link
               href={`#${heading.slug}`}
               className={cn(
