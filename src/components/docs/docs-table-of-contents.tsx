@@ -13,6 +13,7 @@ interface TocItem {
 export function DocsTableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([])
   const [activeId, setActiveId] = useState<string>("")
+  const [counter, setCounter] = useState(0)
 
   useEffect(() => {
     const findHeadings = () => {
@@ -24,7 +25,8 @@ export function DocsTableOfContents() {
         if (!element.id) {
           const text = element.textContent?.trim() || ''
           const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-          element.id = slug || `heading-${index}-${Date.now()}`
+          const uniqueId = slug || `heading-${index}`
+          element.id = uniqueId
         }
         return {
           level: Number(element.tagName.charAt(1)),
@@ -33,6 +35,7 @@ export function DocsTableOfContents() {
         }
       })
       setHeadings(items)
+      setCounter(prev => prev + 1) // Increment counter to force re-render
     }
 
     // Initial scan
@@ -57,7 +60,7 @@ export function DocsTableOfContents() {
       observer.disconnect()
       clearTimeout(timer)
     }
-  }, [])
+  }, [counter])
 
   useEffect(() => {
     if (headings.length === 0) return
@@ -114,8 +117,8 @@ export function DocsTableOfContents() {
     <div className="space-y-4">
       <h4 className="font-medium text-sm">On this page</h4>
       <ul className="space-y-1 text-sm">
-        {headings.map((heading) => (
-          <li key={heading.slug}>
+        {headings.map((heading, index) => (
+          <li key={`${heading.slug}-${counter}-${index}`}>
             <Link
               href={`#${heading.slug}`}
               className={cn(
