@@ -1,0 +1,29 @@
+model Snippet {
+  id          String   @id @default(cuid())
+  title       String               // Title of the snippet
+  description String?              // Optional summary or description
+  code        String   @db.Text    // Actual code snippet (multiline)
+  language    String               // Programming language (e.g., 'javascript')
+  category    String               // Sidebar category (e.g., 'Authentication')
+  framework   String?              // Optional framework or tool used
+  tags        String[]             // Related tags (for search and filter)
+
+  status      SnippetStatus @default(PENDING) // Review status
+  userId      String   @map("user_id")        // Author's user ID
+  reviewedBy  String?                         // Reviewer user ID (optional)
+  reviewedAt  DateTime?                       // When reviewed
+
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user        User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("snippets")
+}
+
+// Enum for snippet status
+enum SnippetStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
