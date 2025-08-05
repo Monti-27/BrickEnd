@@ -31,12 +31,11 @@ const documentationItems: NavItem[] = [
     title: "Getting Started",
     href: "/brickend/docs",
     icon: BookOpen,
-    items: [
-      { title: "Introduction", href: "/brickend/docs" },
-      { title: "Installation", href: "/brickend/docs/installation" },
-      { title: "Quick Start", href: "/brickend/docs/quick-start" },
-      { title: "Core Concepts", href: "/brickend/docs/core-concepts" },
-    ]
+  },
+  {
+    title: "Technologies",
+    href: "/brickend/docs/technologies",
+    icon: Server,
   },
   {
     title: "Guides",
@@ -63,19 +62,6 @@ const documentationItems: NavItem[] = [
     ]
   },
   {
-    title: "Technologies",
-    href: "/brickend/docs/technologies",
-    icon: Server,
-    items: [
-      { title: "MongoDB", href: "/brickend/docs/technologies/mongodb" },
-      { title: "Clerk", href: "/brickend/docs/technologies/clerk" },
-      { title: "Prisma", href: "/brickend/docs/technologies/prisma" },
-      { title: "NextAuth.js", href: "/brickend/docs/technologies/nextauth" },
-      { title: "Stripe", href: "/brickend/docs/technologies/stripe" },
-      { title: "AWS Services", href: "/brickend/docs/technologies/aws" },
-    ]
-  },
-  {
     title: "Examples",
     href: "/brickend/docs/examples",
     icon: FileText,
@@ -91,9 +77,6 @@ const resourcesItems = [
   { title: "Community", href: "/community", icon: Users },
   { title: "Support", href: "/support", icon: LifeBuoy },
   { title: "Feedback", href: "/feedback", icon: MessageSquare },
-  { title: "Blog", href: "/blog", icon: FileText },
-  { title: "Showcase", href: "/showcase", icon: Code },
-  { title: "Templates", href: "/templates", icon: Database },
 ]
 
 function NavItem({ item, level = 0 }: { item: NavItem; level?: number }) {
