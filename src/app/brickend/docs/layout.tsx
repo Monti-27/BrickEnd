@@ -6,13 +6,16 @@ import { DocsSidebar } from "@/components/docs/docs-sidebar"
 import { DocsTableOfContents } from "@/components/docs/docs-table-of-contents"
 import { DocsSearch } from "@/components/docs/docs-search"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { 
   Menu, 
   Search, 
   Github,
   Twitter,
-  Database
+  Database,
+  ArrowLeft
 } from "lucide-react"
+import Link from "next/link"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,8 +34,8 @@ export default function DocsLayout({
     <div className={`min-h-screen bg-background ${inter.variable} font-sans`}>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="mx-auto max-w-7xl flex h-16 items-center justify-between px-6">
-          <div className="flex items-center gap-2">
+        <div className="mx-auto max-w-7xl flex h-16 items-center justify-between px-4">
+          <div className="flex items-center gap-3">
             <Button
               variant="ghost"
               size="sm"
@@ -41,6 +44,12 @@ export default function DocsLayout({
             >
               <Menu className="h-4 w-4" />
             </Button>
+            <Link href="/dashboard">
+              <Button variant="ghost" size="sm" className="gap-2">
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">Go Back</span>
+              </Button>
+            </Link>
             <div className="flex items-center gap-3">
               <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                 <Database className="size-4" />
@@ -49,7 +58,6 @@ export default function DocsLayout({
                 <span className="font-bold text-sm">BrickEnd</span>
                 <span className="text-xs text-muted-foreground">Backend Library</span>
               </div>
-              <span className="text-sm text-muted-foreground ml-2">Docs</span>
             </div>
           </div>
           
@@ -61,6 +69,7 @@ export default function DocsLayout({
             >
               <Search className="h-4 w-4" />
             </Button>
+            <ThemeToggle />
             <Button variant="ghost" size="sm">
               <Github className="h-4 w-4" />
             </Button>
