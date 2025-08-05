@@ -13,11 +13,11 @@ const RealismButton = ({text}) => {
         group-hover:w-[90px] group-hover:shadow-[-4px_1px_45px_#00ff2d60]" />
 
       {/* Inner content */}
-      <div className="relative px-[25px] py-[14px] group-hover:scale-110 rounded-[14px] text-white bg-[radial-gradient(circle_80px_at_80%_-50%,_#777777,_#0f1111)] z-10 transition-all duration-300">
+      <div className="relative px-[20px] py-[8px] group-hover:scale-110 rounded-[14px] text-white bg-[radial-gradient(circle_80px_at_80%_-50%,_#777777,_#0f1111)] z-10 transition-all duration-300">
         {text}
 
         {/* Inner glow layer */}
-        <div className="absolute inset-0 rounded-[14px] bg-[radial-gradient(circle_60px_at_0%_100%,_#00e1ff1a,_#0000ff11,_transparent)] z-[-1]" />
+        <div className="absolute inset-0 rounded-[12px] bg-[radial-gradient(circle_60px_at_0%_100%,_#00e1ff1a,_#0000ff11,_transparent)] z-[-1]" />
       </div>
     </button>
   );
