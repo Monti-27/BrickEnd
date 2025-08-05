@@ -16,6 +16,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { usePathname } from "next/navigation"
+import React from "react"
 
 export default function SnippetsLayout({
   children,
@@ -54,16 +55,18 @@ export default function SnippetsLayout({
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 {breadcrumbItems.map((item, index) => (
-                  <BreadcrumbItem key={index}>
-                    {item.isLast ? (
-                      <BreadcrumbPage>{item.title}</BreadcrumbPage>
-                    ) : (
-                      <BreadcrumbLink href={item.href}>
-                        {item.title}
-                      </BreadcrumbLink>
-                    )}
+                  <React.Fragment key={index}>
+                    <BreadcrumbItem>
+                      {item.isLast ? (
+                        <BreadcrumbPage>{item.title}</BreadcrumbPage>
+                      ) : (
+                        <BreadcrumbLink href={item.href}>
+                          {item.title}
+                        </BreadcrumbLink>
+                      )}
+                    </BreadcrumbItem>
                     {!item.isLast && <BreadcrumbSeparator />}
-                  </BreadcrumbItem>
+                  </React.Fragment>
                 ))}
               </BreadcrumbList>
             </Breadcrumb>
