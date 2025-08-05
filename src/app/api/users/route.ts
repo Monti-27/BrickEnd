@@ -60,6 +60,7 @@ export async function GET() {
         username: true,
         email: true,
         name: true,
+        role: true,
         createdAt: true,
         updatedAt: true
       },
