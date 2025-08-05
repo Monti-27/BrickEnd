@@ -172,7 +172,7 @@ const navData = {
       icon: Database,
       items: [
         {
-          title: "Schema Definition",
+          title: "Schema Design",
           url: "/snippets/prisma/schema-definition",
         },
         {
