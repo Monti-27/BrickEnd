@@ -5,7 +5,18 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import { User, Users, Calendar, Mail, Shield, AlertTriangle } from "lucide-react"
+import { User, Users, Calendar, Mail, Shield, AlertTriangle, ArrowLeft } from "lucide-react"
+import { UserActionsDropdown } from "@/components/ui/user-actions-dropdown"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
+import Link from "next/link"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 interface User {
   id: string
@@ -54,6 +65,18 @@ export default function AdminPage() {
     }
   }
 
+  const handleRoleChange = (userId: string, newRole: string) => {
+    setUsers(prevUsers => 
+      prevUsers.map(user => 
+        user.id === userId ? { ...user, role: newRole } : user
+      )
+    )
+  }
+
+  const handleDelete = (userId: string) => {
+    setUsers(prevUsers => prevUsers.filter(user => user.id !== userId))
+  }
+
   if (status === "loading") {
     return <div className="flex items-center justify-center min-h-screen">Loading...</div>
   }
@@ -88,11 +111,44 @@ export default function AdminPage() {
   return (
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-8">
-        <div className="flex items-center gap-3 mb-2">
-          <Shield className="h-8 w-8 text-primary" />
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+        {/* Breadcrumb Navigation */}
+        <div className="mb-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/dashboard">
+                  Dashboard
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Admin</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
-        <p className="text-muted-foreground">Manage users and system settings</p>
+
+        {/* Header with Actions */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="bg-primary/10 p-3 rounded-lg">
+              <Shield className="h-8 w-8 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+              <p className="text-muted-foreground">Manage users and system settings</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Link href="/dashboard">
+              <Button variant="outline" size="sm" className="gap-2">
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">Dashboard</span>
+              </Button>
+            </Link>
+            <ThemeToggle />
+          </div>
+        </div>
       </div>
 
       {/* Stats Cards */}
@@ -198,8 +254,15 @@ export default function AdminPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">
-                    Joined {new Date(user.createdAt).toLocaleDateString()}
+                  <div className="flex items-center gap-2">
+                    <div className="text-xs text-muted-foreground">
+                      Joined {new Date(user.createdAt).toLocaleDateString()}
+                    </div>
+                    <UserActionsDropdown 
+                      user={user}
+                      onRoleChange={handleRoleChange}
+                      onDelete={handleDelete}
+                    />
                   </div>
                 </div>
               ))}
